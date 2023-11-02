@@ -1,3 +1,21 @@
-#lista_contact{
-    background-color: green;
+#profile {
+    border-radius: 20px;
+}
+
+#lista_contact {
+    padding-top: 20px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+#botones {
+    margin-top: 140px;
+}
+
+#verde{
+    margin-right: 10px;
+}
+
+#rojo{
+    margin-left: 10px;
 }

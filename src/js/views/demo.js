@@ -13,28 +13,28 @@ export const Demo = () => {
 			<form>
 				<h1>Add a new contact</h1>
 				<div className="mb-3">
-					<label for="exampleInputEmail1" className="form-label">Full Name</label>
-					<input type="text" className="form-control"/>
+					<label className="form-label">Full Name</label>
+					<input type="text" className="form-control" placeholder="Full name"/>
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Email address</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
 				</div>
 				<div className="mb-3">
-					<label for="exampleInputEmail1" className="form-label">Email</label>
-					<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-				</div>
-				<div className="mb-3">
-					<label for="exampleInputEmail1" className="form-label">Phone</label>
-					<input type="numbers" className="form-control"/>
+					<label className="form-label">Phone</label>
+					<input type="numbers" className="form-control" placeholder="Enter phone"/>
 				</div>
 				<div className="mb-3">
 					<label for="exampleInputPassword1" className="form-label">Address</label>
-					<input type="text" className="form-control"/>
+					<input type="text" className="form-control" placeholder="Enter address"/>
 				</div>
-				<div class="d-grid gap-2">
-					<button className="btn btn-primary" type="button">Button</button>
+				<div className="d-grid gap-2">
+					<button className="btn btn-primary" type="button">save</button>
 				</div>
 			</form>
 			<br />
 			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+				<a className="text-reset">or get back to contacts</a>
 			</Link>
 		</div>
 	);
