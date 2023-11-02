@@ -10,30 +10,28 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
+			<form>
+				<h1>Add a new contact</h1>
+				<div className="mb-3">
+					<label for="exampleInputEmail1" className="form-label">Full Name</label>
+					<input type="text" className="form-control"/>
+				</div>
+				<div className="mb-3">
+					<label for="exampleInputEmail1" className="form-label">Email</label>
+					<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+				</div>
+				<div className="mb-3">
+					<label for="exampleInputEmail1" className="form-label">Phone</label>
+					<input type="numbers" className="form-control"/>
+				</div>
+				<div className="mb-3">
+					<label for="exampleInputPassword1" className="form-label">Address</label>
+					<input type="text" className="form-control"/>
+				</div>
+				<div class="d-grid gap-2">
+					<button className="btn btn-primary" type="button">Button</button>
+				</div>
+			</form>
 			<br />
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
