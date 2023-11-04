@@ -20,14 +20,14 @@ export const Card = () => {
                             <div className="card-body" id="lista_contact">
                                 <h3 className="card-title"> {item.full_name}</h3>
                                 <h5 className="card-title text-secondary"><i className="fa-solid fa-envelope"></i>  {item.email}</h5>
-                                <h5 className="card-title text-secondary"><i class="fa-solid fa-book"></i>  {item.agenda_slug}</h5>
+                                <h5 className="card-title text-secondary"><i className="fa-solid fa-book"></i>  {item.agenda_slug}</h5>
                                 <h6 className="card-title text-secondary"><i className="fa-solid fa-location-dot"></i>   {item.address}</h6>
                                 <h5 className="card-title text-secondary"><i className="fa-solid fa-phone"></i>  {item.phone}</h5>
                             </div>
                         </div>
-                        <div class="d-grid gap-2 d-md-block col-lg-2" id="botones">
-                            <button class="btn btn-success" type="button" id="verde"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-danger" type="button" id="rojo"><i class="fa-solid fa-trash"></i></button>
+                        <div className="d-grid gap-2 d-md-block col-lg-2" id="botones">
+                            <button className="btn btn-success" type="button" id="verde"><i className="fa-solid fa-pencil"></i></button>
+                            <button className="btn btn-danger" type="button" id="rojo" onClick={()=>actions.handlerDelete(item.id)}><i className="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
                 </div>
