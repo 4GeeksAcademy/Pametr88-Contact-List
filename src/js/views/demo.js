@@ -11,7 +11,7 @@ export const Demo = () => {
 	return (
 		<div className="container">
 			<form>
-				<h1>Add a new contact</h1>
+				<h1 id="title">Add a new contact</h1>
 				<div className="mb-3">
 					<label className="form-label">Full Name</label>
 					<input type="text" className="form-control" placeholder="Full name"/>

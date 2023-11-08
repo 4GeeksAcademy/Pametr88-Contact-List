@@ -26,7 +26,7 @@ export const Card = () => {
                             </div>
                         </div>
                         <div className="d-grid gap-2 d-md-block col-lg-2" id="botones">
-                            <button className="btn btn-success" type="button" id="verde"><i className="fa-solid fa-pencil"></i></button>
+                            <button className="btn btn-success" type="button" id="verde" onClick={()=>actions.handlerEdit(item.id)}><i className="fa-solid fa-pencil"></i></button>
                             <button className="btn btn-danger" type="button" id="rojo" onClick={()=>actions.handlerDelete(item.id)}><i className="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
