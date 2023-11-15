@@ -55,9 +55,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				catch (error) {
 					console.log("Error", error);
 				}
+			},
+			handlerAdd: async (inputName, inputEmail, inputNumber, inputAddress,inputAgenda) => {
+				console.log(inputName, inputEmail, inputNumber, inputAddress,inputAgenda);
+				const actions= getActions();
+				try {
+					const response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+						method: "POST",
+						headers: {"Content-type":"Application/json"},
+						body: JSON.stringify(inputName, inputEmail, inputNumber, inputAddress,inputAgenda),
+					});
+					if (response.ok) {
+						const data = await response.json();
+						let store = getStore();
+						actions.getcontact();
+						setStore({ ...store, contact: data });
+						console.log(data)
+					}
+					else {
+						console.log(response.status,response.statusText);
+					}
+				} catch (error) {
+					console.error("Error fetching : ", error);
+				}
 			}
-		}
-		
+		}		
 	};
 };
 
