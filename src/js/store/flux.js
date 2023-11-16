@@ -56,29 +56,55 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error", error);
 				}
 			},
-			handlerAdd: async (inputName, inputEmail, inputNumber, inputAddress,inputAgenda) => {
-				console.log(inputName, inputEmail, inputNumber, inputAddress,inputAgenda);
-				const actions= getActions();
-				try {
-					const response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
-						method: "POST",
-						headers: {"Content-type":"Application/json"},
-						body: JSON.stringify(inputName, inputEmail, inputNumber, inputAddress,inputAgenda),
+			// handlerAdd: async (data) => {
+			// 	console.log(data);
+			// 	const actions= getActions();
+			// 	try {
+			// 		const response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+			// 			method: "POST",
+			// 			headers: {"Content-type":"Application/json"},
+			// 			body: JSON.stringify({data}),
+			// 		});
+			// 		console.log("Despues de la solicitud");
+			// 		if (response.ok) {
+			// 			const data = await response.json();
+			// 			let store = getStore();
+			// 			actions.getcontact();
+			// 			setStore({ ...store, contact: data });
+			// 			console.log(data)
+			// 		}
+			// 		else {
+			// 			console.log(response.status,response.statusText);
+			// 		}
+			// 	} catch (error) {
+			// 		console.error("Error fetching : ", error);
+			// 	}
+			// }
+			handlerAdd: (data) => {
+				console.log("Datos a enviar:", data);				
+				const actions = getActions();
+				const URL = "https://playground.4geeks.com/apis/fake/contact/";
+				const opt = {
+					method: "POST",
+					headers: {
+						"Content-type": "Application/json",
+					},
+					body: JSON.stringify(data),
+				};				fetch(URL, opt)
+					.then((response) => {
+						console.log("Respuesta:", response);
+						if (response.ok) {
+							actions.getcontact();
+							alert("Contacto creado con éxito");
+						} else {
+							alert("Error al crear contacto");
+						}
+					})
+					.catch((error) => {
+						console.log("Error:", error);
+						alert("Error al crear contacto");
 					});
-					if (response.ok) {
-						const data = await response.json();
-						let store = getStore();
-						actions.getcontact();
-						setStore({ ...store, contact: data });
-						console.log(data)
-					}
-					else {
-						console.log(response.status,response.statusText);
-					}
-				} catch (error) {
-					console.error("Error fetching : ", error);
-				}
-			}
+			},
 		}		
 	};
 };
