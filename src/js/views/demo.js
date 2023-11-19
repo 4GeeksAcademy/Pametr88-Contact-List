@@ -17,9 +17,9 @@ export const Demo = () => {
 	}
 
 	return (
-		<div className="container">
+		<div className="container" id="formulario">
 			<h1 id="title">Add a new contact</h1>
-				<div className="mb-3">
+				<div className="mb-3 entrada">
 					<label className="form-label">Full Name</label>
 					<input type="text" 
 						onChange={info}
@@ -28,7 +28,7 @@ export const Demo = () => {
 						className="form-control" 
 						placeholder="Full name"/>
 				</div>
-				<div class="mb-3">
+				<div class="mb-3 entrada">
 					<label for="exampleInputEmail1" class="form-label">Email address</label>
 					<input type="email" 
 					onChange={info}
@@ -38,7 +38,7 @@ export const Demo = () => {
 					aria-describedby="emailHelp" 
 					placeholder="Enter email"/>
 				</div>
-				<div className="mb-3">
+				<div className="mb-3 entrada">
 					<label className="form-label">Phone</label>
 					<input type="numbers" 
 					onChange={info}
@@ -46,7 +46,7 @@ export const Demo = () => {
 					name="phone"
 					className="form-control" placeholder="Enter phone"/>
 				</div>
-				<div className="mb-3">
+				<div className="mb-3 entrada">
 					<label className="form-label">Agenda</label>
 					<input type="text" 
 						onChange={info}
@@ -55,7 +55,7 @@ export const Demo = () => {
 						className="form-control" 
 						placeholder="Agenda"/>
 				</div>
-				<div className="mb-3">
+				<div className="mb-3 entrada">
 					<label for="exampleInputPassword1" className="form-label">Address</label>
 					<input type="text" 
 					onChange={info}
@@ -64,12 +64,12 @@ export const Demo = () => {
 					className="form-control" placeholder="Enter address"/>
 				</div>
 				<div className="d-grid gap-2">
-					<button className="btn btn-primary" type="button" onClick={Agregar}>save</button>
+					<button className="btn btn-danger entrada" type="button" onClick={Agregar}>save</button>
 				</div>
 			
 			<br />
 			<Link to="/">
-				<a className="text-reset">or get back to contacts</a>
+				<a className="text-reset" id="volver"><i class="fa-solid fa-house fa-xl" style={{color: "#800000"}}></i></a>
 			</Link>
 		</div>
 	);

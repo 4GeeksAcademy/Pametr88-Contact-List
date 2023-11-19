@@ -1,4 +1,19 @@
 #title {
     color: darkred;
     align-items: center;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#formulario{
+    background-color: lightcoral;
+    border-radius: 25px;
+}
+#volver{
+    text-align: center;
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+.entrada{
+    color: darkred;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
