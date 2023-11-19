@@ -3,7 +3,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			contact: [
 
-			]
+			],
+			currentEdit: {
+
+			}
 		},
 		actions: {
 			getcontact: async () => {
@@ -32,56 +35,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Contacto eliminado", data);
 					const store = getStore()
 					let contactFiltered = store.contact.filter((obj) => obj.id !== id)
-					setStore({...store,contact:contactFiltered})
+					setStore({ ...store, contact: contactFiltered })
 				}
 				catch (error) {
 					console.log("Error", error);
 				}
 			},
-			handlerEdit: async (id) => {
+			editContact: async (body, id) => {
 				try {
 					const response = await fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
-						method: "PUT"
+						method: "PUT",
+						body: JSON.stringify(body),
+						headers: { "Content-Type": "Application/json" }
 					});
 					if (!response.ok) {
 						throw new Error(response.statusText)
 					}
 					const data = await response.json()
-					console.log("Contacto editado", data);
-					const store = getStore()
-					let contactFiltered = store.contact.filter((obj) => obj.id !== id)
-					setStore({...store,contact:contactFiltered})
+					console.log(data);
+					const actions = getActions()
+					await actions.getContacts()
 				}
 				catch (error) {
 					console.log("Error", error);
 				}
 			},
-			// handlerAdd: async (data) => {
-			// 	console.log(data);
-			// 	const actions= getActions();
-			// 	try {
-			// 		const response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
-			// 			method: "POST",
-			// 			headers: {"Content-type":"Application/json"},
-			// 			body: JSON.stringify({data}),
-			// 		});
-			// 		console.log("Despues de la solicitud");
-			// 		if (response.ok) {
-			// 			const data = await response.json();
-			// 			let store = getStore();
-			// 			actions.getcontact();
-			// 			setStore({ ...store, contact: data });
-			// 			console.log(data)
-			// 		}
-			// 		else {
-			// 			console.log(response.status,response.statusText);
-			// 		}
-			// 	} catch (error) {
-			// 		console.error("Error fetching : ", error);
-			// 	}
-			// }
+			setCurrentEdit: (obj) => {
+				let store = getStore();
+				setStore({ ...store, currentEdit: obj });
+			},
 			handlerAdd: (data) => {
-				console.log("Datos a enviar:", data);				
+				console.log("Datos a enviar:", data);
 				const actions = getActions();
 				const URL = "https://playground.4geeks.com/apis/fake/contact/";
 				const opt = {
@@ -90,12 +74,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-type": "Application/json",
 					},
 					body: JSON.stringify(data),
-				};				fetch(URL, opt)
+				}; fetch(URL, opt)
 					.then((response) => {
 						console.log("Respuesta:", response);
 						if (response.ok) {
 							actions.getcontact();
-							alert("Contacto creado con éxito");
 						} else {
 							alert("Error al crear contacto");
 						}
@@ -105,7 +88,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Error al crear contacto");
 					});
 			},
-		}		
+		}
 	};
 };
 

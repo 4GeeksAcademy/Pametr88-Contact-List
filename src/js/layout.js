@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
+import Edit from "./views/edit";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
@@ -26,6 +27,7 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/edit" element={<Edit />} />
 					</Routes>
 					<Footer />
 				</ScrollToTop>

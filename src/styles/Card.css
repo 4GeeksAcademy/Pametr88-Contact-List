@@ -1,5 +1,7 @@
+
 #profile {
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 #lista_contact {
@@ -18,4 +20,8 @@
 
 #rojo{
     margin-left: 10px;
+}
+
+#fondo{
+    background-color: lightcoral;
 }
